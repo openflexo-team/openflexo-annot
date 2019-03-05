@@ -1,0 +1,19 @@
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
+
+/**
+ * 
+ * @author sylvain
+ * @version 0.1
+ */
+@VirtualModel(uri="http://openflexo.org/annotmodule/Annot.fml")
+public class Annot {
+
+  @FMLRTVirtualModelInstanceModelSlot(cardinality=ZeroOne,readOnly=false)  
+  public VirtualModelInstanceType<TestVM> test;
+
+  @CreationScheme  
+  Annot:create() {  
+    test = TestVM.create();  
+  }  
+
+}

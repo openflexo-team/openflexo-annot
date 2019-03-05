@@ -1,3 +1,11 @@
+.classpath
+.project
+.settings
+.DS_Store
+/pom.xml~
+/.gradle/
+/infer-out/
+
 .gradle
 /build/
 
