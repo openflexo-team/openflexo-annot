@@ -1,5 +1,7 @@
 dependencies {
    
+  compile project(':annot-rc')
+ 
   compile flexoFoundation()
   compile flexoUi()
   compile flexoUtils()
