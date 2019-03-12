@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Flexovieweditor, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -41,7 +41,6 @@ package org.openflexo.annot.fib;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.junit.BeforeClass;
@@ -49,6 +48,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openflexo.ApplicationContext;
+import org.openflexo.annotmodule.AnnotCst;
 import org.openflexo.foundation.FlexoException;
 import org.openflexo.foundation.fml.VirtualModel;
 import org.openflexo.foundation.resource.ResourceLoadingCancelledException;
@@ -64,49 +64,9 @@ import org.openflexo.technologyadapter.gina.model.FMLFIBBindingFactory;
 @RunWith(Parameterized.class)
 public class TestAnnotFibs extends GenericFIBTestCase {
 
-	/*
-	 * Use this method to print all
-	 * Then copy-paste 
-	 */
-
-	/*public static void main(String[] args) {
-		System.out.println(generateFIBTestCaseClass(((FileResourceImpl) ResourceLocator.locateResource("Fib")).getFile(), "Fib/"));
-		// System.out.println(generateFIBTestCaseClass(new File(System.getProperty("user.dir") + "/src/main/resources/Fib"), "Fib/"));
-	}
-	
-	@Test
-	public void testGenericProjectBrowser() {
-		validateFIB("Fib/GenericProjectBrowser.fib");
-	}
-	
-	@Test
-	public void testAnnotProjectBrowser() {
-		validateFIB("Fib/AnnotProjectBrowser.fib");
-	}
-	
-	@Test
-	public void testAnnotProjectNaturePanel() {
-		validateFIB("Fib/AnnotProjectNaturePanel.fib");
-	}*/
-
 	@Parameterized.Parameters(name = "{1}")
 	public static Collection<Object[]> generateData() {
-		final ArrayList<Object[]> list = new ArrayList<Object[]>();
-		final Resource directory = ResourceLocator.locateResource("Fib");
-		addToList(list, directory);
-		return list;
-	}
-
-	private static void addToList(final ArrayList<Object[]> list, final Resource directory) {
-		for (Resource f : directory.getContents()) {
-			if (f.getURI().endsWith(".fib")) {
-				final Object[] construcArgs = { f, f.getURI().substring(f.getURI().lastIndexOf("/") + 1) };
-				list.add(construcArgs);
-			}
-			else if (f.isContainer()) {
-				addToList(list, f);
-			}
-		}
+		return Resource.getMatchingResource(ResourceLocator.locateResource("Fib"), ".fib");
 	}
 
 	private final Resource fibResource;
@@ -124,16 +84,10 @@ public class TestAnnotFibs extends GenericFIBTestCase {
 	private static FIBLibrary fibLibrary;
 
 	@BeforeClass
-	public static void instanciateTestServiceManager(/*Class<? extends TechnologyAdapter>... taClasses*/)
-			throws FileNotFoundException, ResourceLoadingCancelledException, FlexoException {
+	public static void instanciateTestServiceManager() throws FileNotFoundException, ResourceLoadingCancelledException, FlexoException {
 		System.out.println("Init ServiceManager");
 		serviceManager = new TestApplicationContext();
-		/*for (Class<? extends TechnologyAdapter> technologyAdapterClass : taClasses) {
-			serviceManager.activateTechnologyAdapter(
-					serviceManager.getTechnologyAdapterService().getTechnologyAdapter(technologyAdapterClass));
-		}*/
-		// return serviceManager;
-		assertNotNull(getAnnotVirtualModel());
+		assertNotNull(getVirtualModel());
 
 		fibLibrary = FIBLibraryImpl.createInstance(serviceManager.getTechnologyAdapterService());
 	}
@@ -143,25 +97,21 @@ public class TestAnnotFibs extends GenericFIBTestCase {
 		return fibLibrary;
 	}
 
-	public static VirtualModel getAnnotVirtualModel() throws FileNotFoundException, ResourceLoadingCancelledException, FlexoException {
-		return serviceManager.getVirtualModelLibrary().getVirtualModel("http://openflexo.org/annotmodule/Annot.fml");
+	private static VirtualModel getVirtualModel() throws FileNotFoundException, ResourceLoadingCancelledException, FlexoException {
+		return serviceManager.getVirtualModelLibrary().getVirtualModel(AnnotCst.VIEWPOINT_URI);
 	}
 
 	@Override
 	protected void initFIBComponent(FIBComponent component) {
 		super.initFIBComponent(component);
 		try {
-			component.setBindingFactory(new FMLFIBBindingFactory(getAnnotVirtualModel()));
+			component.setBindingFactory(new FMLFIBBindingFactory(getVirtualModel()));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ResourceLoadingCancelledException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (FlexoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
 }

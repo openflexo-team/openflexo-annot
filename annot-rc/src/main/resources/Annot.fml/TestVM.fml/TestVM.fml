@@ -1,7 +1,7 @@
 
 /**
  * 
- * @author sylvain
+ * @author Fabien Dagnat
  * @version 0.1
  */
 @VirtualModel(uri="http://openflexo.org/annotmodule/Annot.fml/TestVM.fml")

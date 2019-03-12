@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VirtualModel id="SYL-4" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://openflexo.org/annotmodule/Annot.fml" version="0.1" name="Annot" author="sylvain" description="" userID="SYL" flexoID="4">
+<VirtualModel id="SYL-4" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://openflexo.org/annotmodule/Annot.fml" version="0.1" name="Annot" author="Fabien Dagnat" description="" userID="SYL" flexoID="4">
   <FMLLocalizedDictionary id="SYL-5" userID="SYL" flexoID="5">
     <Localized id="SYL-7" lang="English" value="Behaviour" key="behaviour" userID="SYL" flexoID="7" />
     <Localized id="SYL-8" lang="French" value="behaviour" key="behaviour" userID="SYL" flexoID="8" />

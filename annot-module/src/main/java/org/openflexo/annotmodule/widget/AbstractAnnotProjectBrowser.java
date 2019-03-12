@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Formose prototype, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -59,7 +59,7 @@ import org.openflexo.view.controller.FlexoController;
 /**
  * Browser
  * 
- * @author yourname
+ * @author Fabien Dagnat
  */
 @SuppressWarnings("serial")
 public abstract class AbstractAnnotProjectBrowser extends FIBBrowserView<AnnotProjectNature> {
@@ -88,7 +88,7 @@ public abstract class AbstractAnnotProjectBrowser extends FIBBrowserView<AnnotPr
 		if (annotViewpoint == null && getFlexoController() != null) {
 			try {
 				annotViewpoint = getFlexoController().getApplicationContext().getVirtualModelLibrary()
-						.getVirtualModel(AnnotCst.Annot_VIEWPOINT_URI);
+						.getVirtualModel(AnnotCst.VIEWPOINT_URI);
 			} catch (FileNotFoundException | ResourceLoadingCancelledException | FlexoException e) {
 				e.printStackTrace();
 			}

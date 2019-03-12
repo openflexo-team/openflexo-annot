@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014-2015, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Formose prototype, a component of the software infrastructure developed at Openflexo.
+ * This file is part of Annot, a module of the software infrastructure developed at Openflexo.
  * 
  * 
  * Openflexo is dual-licensed under the European Union Public License (EUPL, either version 1.1 of the License, or any later version ),
@@ -50,7 +50,7 @@ import org.openflexo.pamela.annotations.XMLElement;
  * This API is used to interpret a {@link FlexoProject} as a Annot project <br>
  *
  * 
- * @author yourname
+ * @author Fabien Dagnat
  */
 @ModelEntity
 @XMLElement
@@ -79,7 +79,7 @@ public interface AnnotProjectNature extends ProjectNature<AnnotProjectNature> {
 		public VirtualModel getAnnotViewPoint() {
 			if (annotViewpoint == null && getServiceManager() != null) {
 				try {
-					annotViewpoint = getServiceManager().getVirtualModelLibrary().getVirtualModel(AnnotCst.Annot_VIEWPOINT_URI);
+					annotViewpoint = getServiceManager().getVirtualModelLibrary().getVirtualModel(AnnotCst.VIEWPOINT_URI);
 				} catch (FileNotFoundException | ResourceLoadingCancelledException | FlexoException e) {
 					e.printStackTrace();
 				}

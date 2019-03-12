@@ -1,9 +1,9 @@
 /**
  * 
- * Copyright (c) 2013-2014, Openflexo
- * Copyright (c) 2011-2012, AgileBirds
+ * Copyright (c) 2019, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Flexovieweditor, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -42,12 +42,11 @@ package org.openflexo.annotmodule;
 /**
  * Constants used by the Annot module.
  * 
- * @author yourname
+ * @author Fabien Dagnat
  */
 public class AnnotCst {
 
-	public static final String Annot_VIEWPOINT_URI = "http://openflexo.org/annotmodule/Annot.fml";
-
-	public static final String Annot_VIEW_NAME = "AnnotView";
+	public static final String VIEWPOINT_URI = "http://openflexo.org/annotmodule/Annot.fml";
+	public static final String VIEW_NAME = "AnnotView";
 
 }

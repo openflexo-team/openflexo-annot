@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014-2015, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Formose prototype, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -49,7 +49,7 @@ import org.openflexo.logging.FlexoLogger;
 /**
  * This class is used to interpret a {@link FlexoProject} as a {@link AnnotProject}<br>
  * 
- * @author yourname
+ * @author Fabien Dagnat
  */
 public class AnnotProjectNatureFactory extends DefaultProjectNatureFactoryImpl<AnnotProjectNature> {
 

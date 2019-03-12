@@ -1,7 +1,8 @@
 /*
- * (c) Copyright 2013- Openflexo
+ * Copyright (c) 2019 Openflexo
  *
- * This file is part of OpenFlexo.
+ * This file is part of Annot, a module of the software infrastructure 
+ * developed at Openflexo.
  *
  * OpenFlexo is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

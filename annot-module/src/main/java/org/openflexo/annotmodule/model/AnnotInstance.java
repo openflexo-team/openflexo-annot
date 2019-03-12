@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Freemodellingeditor, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -52,7 +52,7 @@ import org.openflexo.pamela.annotations.XMLElement;
  * Represents instance of Annot {@link VirtualModel} in the context of a {@link AnnotProjectNature}<br>
  * From a technical point of view, a {@link AnnotInstance} is just a wrapper above a {@link FMLRTVirtualModelInstance}
  * 
- * @author yourname
+ * @author Fabien Dagnat
  * 
  */
 @ModelEntity

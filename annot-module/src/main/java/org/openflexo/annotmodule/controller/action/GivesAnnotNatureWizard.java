@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Freemodellingeditor, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -93,7 +93,7 @@ public class GivesAnnotNatureWizard extends FlexoWizard {
 	/**
 	 * This step is used to set {@link VirtualModel} to be used, as well as name and title of the {@link FMLRTVirtualModelInstance}
 	 * 
-	 * @author yourname
+	 * @author Fabien Dagnat
 	 *
 	 */
 	@FIBPanel("Fib/Wizard/ConfigureAnnot.fib")

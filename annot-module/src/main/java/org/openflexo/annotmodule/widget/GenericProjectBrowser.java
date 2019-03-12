@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Formose prototype, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -47,11 +47,10 @@ import org.openflexo.view.FIBBrowserView;
 import org.openflexo.view.controller.FlexoController;
 
 /**
- * A browser that present a formose project<br>
+ * The default browser that presents the project<br>
  * 
- * @author yourname
+ * @author Fabien Dagnat
  */
-@SuppressWarnings("serial")
 public class GenericProjectBrowser extends FIBBrowserView<FlexoProject<?>> {
 
 	private static final Resource BROWSER_FIB = ResourceLocator.locateResource("Fib/GenericProjectBrowser.fib");

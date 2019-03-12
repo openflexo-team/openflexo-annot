@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014-2015, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Freemodellingeditor, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -67,7 +67,7 @@ import org.openflexo.localization.LocalizedDelegate;
 /**
  * This action is called to gives Annot nature to a project
  * 
- * @author yourname
+ * @author Fabien Dagnat
  */
 @SuppressWarnings("deprecation")
 public class GivesAnnotNature extends GivesNatureAction<GivesAnnotNature, AnnotProjectNature>
@@ -78,7 +78,6 @@ public class GivesAnnotNature extends GivesNatureAction<GivesAnnotNature, AnnotP
 
 	public static FlexoActionFactory<GivesAnnotNature, FlexoProject<?>, FlexoObject> actionType = new FlexoActionFactory<GivesAnnotNature, FlexoProject<?>, FlexoObject>(
 			"gives_annot_nature") {
-
 		/**
 		 * Factory method
 		 */
@@ -124,7 +123,7 @@ public class GivesAnnotNature extends GivesNatureAction<GivesAnnotNature, AnnotP
 	public VirtualModel getAnnotVirtualModel() {
 		if (getServiceManager() != null) {
 			try {
-				return getServiceManager().getVirtualModelLibrary().getVirtualModel(AnnotCst.Annot_VIEWPOINT_URI);
+				return getServiceManager().getVirtualModelLibrary().getVirtualModel(AnnotCst.VIEWPOINT_URI);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (ResourceLoadingCancelledException e) {
@@ -141,25 +140,25 @@ public class GivesAnnotNature extends GivesNatureAction<GivesAnnotNature, AnnotP
 
 		AnnotProjectNature nature = getFocusedObject().getModelFactory().newInstance(AnnotProjectNature.class);
 
-		AnnotInstance formoseVMI = retrieveAnnotInstance();
-		if (formoseVMI == null) {
-			formoseVMI = makeAnnotInstance();
+		AnnotInstance annotVMI = retrieveAnnotInstance();
+		if (annotVMI == null) {
+			annotVMI = makeAnnotInstance();
 		}
 
-		nature.setAnnotInstance(formoseVMI);
+		nature.setAnnotInstance(annotVMI);
 
 		return nature;
 	}
 
 	private AnnotInstance retrieveAnnotInstance() {
 
-		VirtualModel formoseVirtualModel = getAnnotVirtualModel();
-		if (formoseVirtualModel == null) {
+		VirtualModel annotVirtualModel = getAnnotVirtualModel();
+		if (annotVirtualModel == null) {
 			return null;
 		}
 		for (FMLRTVirtualModelInstanceResource viewResource : getFocusedObject().getVirtualModelInstanceRepository().getAllResources()) {
 			if (viewResource.getVirtualModelResource() != null
-					&& viewResource.getVirtualModelResource() == formoseVirtualModel.getResource()) {
+					&& viewResource.getVirtualModelResource() == annotVirtualModel.getResource()) {
 				try {
 
 					AnnotInstance newAnnotVMI = getFocusedObject().getModelFactory().newInstance(AnnotInstance.class);
@@ -187,8 +186,8 @@ public class GivesAnnotNature extends GivesNatureAction<GivesAnnotNature, AnnotP
 
 		CreateBasicVirtualModelInstance action = CreateBasicVirtualModelInstance.actionType
 				.makeNewEmbeddedAction(getFocusedObject().getVirtualModelInstanceRepository().getRootFolder(), null, this);
-		action.setNewVirtualModelInstanceName(AnnotCst.Annot_VIEW_NAME);
-		action.setNewVirtualModelInstanceTitle(AnnotCst.Annot_VIEW_NAME);
+		action.setNewVirtualModelInstanceName(AnnotCst.VIEW_NAME);
+		action.setNewVirtualModelInstanceTitle(AnnotCst.VIEW_NAME);
 		action.setVirtualModel(annotVirtualModel);
 
 		CreationScheme annotViewCreationScheme = (CreationScheme) annotVirtualModel.getFlexoBehaviour("create");

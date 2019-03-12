@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Flexovieweditor, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -46,7 +46,7 @@ import org.openflexo.module.Module;
  * You should never instantiate this class (never invoke constructor of this class): this will be done by the ModuleLoader during dynamic
  * service discovering
  * 
- * @author yourname
+ * @author Fabien Dagnat
  */
 public class Annot extends Module<AnnotModule> {
 

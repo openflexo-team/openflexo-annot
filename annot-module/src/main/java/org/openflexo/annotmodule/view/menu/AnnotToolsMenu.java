@@ -1,8 +1,8 @@
 /**
  * 
- * Copyright (c) 2014, Openflexo
+ * Copyright (c) 2019, Openflexo
  * 
- * This file is part of Flexovieweditor, a component of the software infrastructure 
+ * This file is part of Annot, a module of the software infrastructure 
  * developed at Openflexo.
  * 
  * 
@@ -46,7 +46,7 @@ import org.openflexo.view.menu.ToolsMenu;
 /**
  * 'Tools' menu for this Module
  * 
- * @author yourname
+ * @author Fabien Dagnat
  */
 @SuppressWarnings("serial")
 public class AnnotToolsMenu extends ToolsMenu {

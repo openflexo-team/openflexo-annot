@@ -1,5 +1,5 @@
 /*
- * (c) Copyright 2013- Openflexo
+ * Copyright (c) 2019 Openflexo
  *
  * This file is part of OpenFlexo.
  *
