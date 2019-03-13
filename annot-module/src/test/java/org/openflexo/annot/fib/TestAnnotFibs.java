@@ -59,6 +59,7 @@ import org.openflexo.gina.test.GenericFIBTestCase;
 import org.openflexo.gina.test.TestApplicationContext;
 import org.openflexo.rm.Resource;
 import org.openflexo.rm.ResourceLocator;
+import org.openflexo.rm.Resources;
 import org.openflexo.technologyadapter.gina.model.FMLFIBBindingFactory;
 
 @RunWith(Parameterized.class)
@@ -66,7 +67,7 @@ public class TestAnnotFibs extends GenericFIBTestCase {
 
 	@Parameterized.Parameters(name = "{1}")
 	public static Collection<Object[]> generateData() {
-		return Resource.getMatchingResource(ResourceLocator.locateResource("Fib"), ".fib");
+		return Resources.getMatchingResource(ResourceLocator.locateResource("Fib"), ".fib");
 	}
 
 	private final Resource fibResource;
