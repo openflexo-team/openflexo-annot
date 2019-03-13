@@ -44,6 +44,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.FileNotFoundException;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openflexo.OpenflexoProjectAtRunTimeTestCaseWithGUI;
@@ -80,16 +81,13 @@ public class TestCreateAnnotProject extends OpenflexoProjectAtRunTimeTestCaseWit
 	 * @throws ResourceLoadingCancelledException
 	 * @throws FileNotFoundException
 	 */
-	@Test
-	@TestOrder(1)
-	public void instantiateServiceManager() throws FileNotFoundException, ResourceLoadingCancelledException, FlexoException {
-		log("testInstantiateResourceCenter()");
-
+	@BeforeClass
+	public static void testInitializeServiceManager() throws Exception {
 		instanciateTestServiceManager();
 	}
 
 	@Test
-	@TestOrder(2)
+	@TestOrder(1)
 	public void loadViewPoint() {
 		log("Testing ViewPoint loading: " + AnnotCst.VIEWPOINT_URI);
 
@@ -108,7 +106,7 @@ public class TestCreateAnnotProject extends OpenflexoProjectAtRunTimeTestCaseWit
 	}
 
 	@Test
-	@TestOrder(3)
+	@TestOrder(2)
 	public void createProject() {
 		log("createProject");
 
@@ -125,7 +123,7 @@ public class TestCreateAnnotProject extends OpenflexoProjectAtRunTimeTestCaseWit
 	}
 
 	@Test
-	@TestOrder(4)
+	@TestOrder(3)
 	public void givesProjectAnnotNature() {
 		log("givesProjectAnnotNature");
 
