@@ -45,7 +45,7 @@ import java.util.logging.Logger;
 import org.openflexo.ApplicationContext;
 import org.openflexo.annotmodule.AnnotIconLibrary;
 import org.openflexo.annotmodule.model.action.GivesAnnotNature;
-import org.openflexo.components.wizard.FlexoWizard;
+import org.openflexo.components.wizard.FlexoActionWizard;
 import org.openflexo.components.wizard.WizardStep;
 import org.openflexo.foundation.fml.VirtualModel;
 import org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstance;
@@ -54,26 +54,23 @@ import org.openflexo.icon.IconFactory;
 import org.openflexo.icon.IconLibrary;
 import org.openflexo.view.controller.FlexoController;
 
-public class GivesAnnotNatureWizard extends FlexoWizard {
+public class GivesAnnotNatureWizard extends FlexoActionWizard<GivesAnnotNature> {
 
 	@SuppressWarnings("unused")
 	private static final Logger logger = Logger.getLogger(GivesAnnotNatureWizard.class.getPackage().getName());
-
-	private final GivesAnnotNature action;
 
 	private final ConfigureAnnot configureAnnot;
 
 	private static final Dimension DIMENSIONS = new Dimension(750, 500);
 
 	public GivesAnnotNatureWizard(GivesAnnotNature action, FlexoController controller) {
-		super(controller);
-		this.action = action;
+		super(action, controller);
 		addStep(configureAnnot = new ConfigureAnnot());
 	}
 
 	@Override
 	public String getWizardTitle() {
-		return action.getLocales().localizedForKey("gives_project_annot_nature");
+		return getAction().getLocales().localizedForKey("gives_project_annot_nature");
 	}
 
 	@Override
@@ -104,12 +101,12 @@ public class GivesAnnotNatureWizard extends FlexoWizard {
 		}
 
 		public GivesAnnotNature getAction() {
-			return action;
+			return GivesAnnotNatureWizard.this.getAction();
 		}
 
 		@Override
 		public String getTitle() {
-			return action.getLocales().localizedForKey("configure_annot");
+			return getAction().getLocales().localizedForKey("configure_annot");
 		}
 
 		@Override
