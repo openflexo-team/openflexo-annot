@@ -46,6 +46,7 @@ import java.io.FileNotFoundException;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.openflexo.OpenflexoProjectAtRunTimeTestCaseWithGUI;
 import org.openflexo.annotmodule.AnnotCst;
@@ -60,6 +61,7 @@ import org.openflexo.foundation.resource.FlexoResource;
 import org.openflexo.foundation.resource.ResourceLoadingCancelledException;
 import org.openflexo.test.OrderedRunner;
 import org.openflexo.test.TestOrder;
+import org.openflexo.test.UITest;
 
 /**
  * We test here the creation of a project
@@ -88,6 +90,7 @@ public class TestCreateAnnotProject extends OpenflexoProjectAtRunTimeTestCaseWit
 
 	@Test
 	@TestOrder(1)
+	@Category(UITest.class)
 	public void loadViewPoint() {
 		log("Testing ViewPoint loading: " + AnnotCst.VIEWPOINT_URI);
 
@@ -107,6 +110,7 @@ public class TestCreateAnnotProject extends OpenflexoProjectAtRunTimeTestCaseWit
 
 	@Test
 	@TestOrder(2)
+	@Category(UITest.class)
 	public void createProject() {
 		log("createProject");
 
@@ -124,6 +128,7 @@ public class TestCreateAnnotProject extends OpenflexoProjectAtRunTimeTestCaseWit
 
 	@Test
 	@TestOrder(3)
+	@Category(UITest.class)
 	public void givesProjectAnnotNature() {
 		log("givesProjectAnnotNature");
 

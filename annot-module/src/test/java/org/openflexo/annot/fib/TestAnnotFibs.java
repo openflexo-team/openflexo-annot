@@ -45,6 +45,7 @@ import java.util.Collection;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openflexo.ApplicationContext;
@@ -61,6 +62,7 @@ import org.openflexo.rm.Resource;
 import org.openflexo.rm.ResourceLocator;
 import org.openflexo.rm.Resources;
 import org.openflexo.technologyadapter.gina.model.FMLFIBBindingFactory;
+import org.openflexo.test.UITest;
 
 @RunWith(Parameterized.class)
 public class TestAnnotFibs extends GenericFIBTestCase {
@@ -77,6 +79,7 @@ public class TestAnnotFibs extends GenericFIBTestCase {
 	}
 
 	@Test
+	@Category(UITest.class)
 	public void validateFib() {
 		validateFIB(fibResource);
 	}
